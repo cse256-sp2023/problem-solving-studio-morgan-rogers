@@ -30,20 +30,20 @@ $('.perm_info').click(function(){
     console.log($(this).attr('permission_name'));
 
 
-    $('#information').append(getUserinfo);// wrong
+   // $('#information').append(getUserinfo);// wrong
 })
 
 // explanation behind permissions after clicking 'i'
-var getUserinfo = allow_user_action(fileObj, userObj, getPermission, explain_why = true);
-var explanation = get_explanation_text(explanation);
+//var getUserinfo = allow_user_action(fileObj, userObj, getPermission, explain_why = true);
+//var explanation = get_explanation_text(explanation);
 
-var getFile = document.getElementById("panel").getAttribute("filepath");  
-var getUser = document.getElementById("panel").getAttribute("username");  
-var getPermission = document.getElementById("panel").getAttribute("permission_name");  
+//var getFile = document.getElementById("panel").getAttribute("filepath");  
+//var getUser = document.getElementById("panel").getAttribute("username");  
+//var getPermission = document.getElementById("panel").getAttribute("permission_name");  
 
 
-var fileObj = path_to_file[getFile];
-var userObj = all_users[getUser]; //???
+//var fileObj = path_to_file[getFile];
+//var userObj = all_users[getUser]; //???
  
 
 // ---- Display file structure ----
