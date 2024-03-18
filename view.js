@@ -1,10 +1,55 @@
 // ---- Define your dialogs  and panels here ----
 
+var panel = define_new_effective_permissions("panel", true);
 
+$('#sidepanel').append(panel);
+
+//adding a new user
+
+var newUser = define_new_user_select_field("newUser4", "Show User Permissions", function(selected_user) {
+
+    $('#panel').attr('username', selected_user);
+    $('#panel').attr('filepath', '/C/presentation_documents/important_file.txt');
+
+
+ })
+$('#sidepanel').append(newUser);
+
+///////////////////////////////////////////////////////////////////////////
+//  'i' popup
+
+var info = define_new_dialog("information", title='placeholder', options = {});
+
+$('.perm_info').click(function(){
+
+    // stuff that should happen on click goes here
+    info.dialog('open');
+    
+    console.log($('#panel').attr('filepath'));
+    console.log($('#panel').attr('username'));
+    console.log($(this).attr('permission_name'));
+
+
+    $('#information').append(getUserinfo);// wrong
+})
+
+// explanation behind permissions after clicking 'i'
+var getUserinfo = allow_user_action(fileObj, userObj, getPermission, explain_why = true);
+var explanation = get_explanation_text(explanation);
+
+var getFile = document.getElementById("panel").getAttribute("filepath");  
+var getUser = document.getElementById("panel").getAttribute("username");  
+var getPermission = document.getElementById("panel").getAttribute("permission_name");  
+
+
+var fileObj = path_to_file[getFile];
+var userObj = all_users[getUser]; //???
+ 
 
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
+
 function make_file_element(file_obj) {
     let file_hash = get_full_path(file_obj)
 
